@@ -25,6 +25,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'capistrano', '~> 3.4.0'
 
+gem 'pg', '~> 0.18.1'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -47,8 +49,8 @@ end
 
 
 # gem 'spree', path: '/Users/toptierlabs/Desktop/spree', :branch => '2-4-stable'
-gem 'spree', git: 'https://github.com/matiasmansilla1989/spree.git', branch: '2-4-stable'
 # gem 'spree_multi_domain', path: "/Users/toptierlabs/Desktop/SpreeMultiDomainMatias"
-gem 'spree_multi_domain', git: 'https://github.com/matiasmansilla1989/spree-multi-domain.git'
 # gem 'spree_auth_devise', :path => '/Users/toptierlabs/Desktop/spree_auth_devise', :branch => '2-4-stable'
+gem 'spree', git: 'https://github.com/matiasmansilla1989/spree.git', branch: '2-4-stable'
+gem 'spree_multi_domain', git: 'https://github.com/matiasmansilla1989/spree-multi-domain.git'
 gem 'spree_auth_devise', git: 'https://github.com/matiasmansilla1989/spree_auth_devise.git', :branch => '2-4-stable'

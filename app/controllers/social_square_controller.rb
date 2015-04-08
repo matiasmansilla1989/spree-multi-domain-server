@@ -19,10 +19,8 @@ class SocialSquareController < ApplicationController
     render json: {spree_user_id: user.id, spree_user_store: store_url}
   end
 
-end
+  def check_health
+    head :ok
+  end
 
-# HTTParty.post("http://spree1.dev:3001/user/create/social_square",
-#   { 
-#     :body => { "spree_user" => {"email" => "mmansilla@toptierlabs.com", "password" => "123456"} }.to_json,
-#     :headers => { 'Content-Type' => 'application/json', 'Accept' => 'application/json'}
-#   })
+end

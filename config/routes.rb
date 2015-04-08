@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   post '/social_square/my_store'    => 'social_square#my_store'
   post '/user/create/social_square' => 'social_square#create_user'
+  get  '/check_health'              => 'social_square#check_health'
 
   # Spree::Admin::UserSessionsController 
           # The priority is based upon order of creation: first created -> highest priority.

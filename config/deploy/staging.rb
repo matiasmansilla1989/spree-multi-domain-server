@@ -1,3 +1,6 @@
+server "ubuntu@54.172.96.24"
+# set :deploy_to, '/var/www/spree-multi-domain-server'
+
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.

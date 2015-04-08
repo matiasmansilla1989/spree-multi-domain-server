@@ -1,6 +1,5 @@
-GIT
-  remote: https://github.com/matiasmansilla1989/spree-multi-domain.git
-  revision: f3a5e15e997672ee6700e42895d7198245d9263e
+PATH
+  remote: /Users/toptierlabs/Desktop/SpreeMultiDomainMatias
   specs:
     spree_multi_domain (1.0.0)
       spree_api (~> 2.4.0)
@@ -8,10 +7,8 @@ GIT
       spree_core (~> 2.4.0)
       spree_frontend (~> 2.4.0)
 
-GIT
-  remote: https://github.com/matiasmansilla1989/spree.git
-  revision: c97fc19130777de4d73dc05e4426b4fa6ac5d373
-  branch: 2-4-stable
+PATH
+  remote: /Users/toptierlabs/Desktop/spree
   specs:
     spree (2.4.7.beta)
       spree_api (= 2.4.7.beta)
@@ -64,10 +61,8 @@ GIT
     spree_sample (2.4.7.beta)
       spree_core (= 2.4.7.beta)
 
-GIT
-  remote: https://github.com/matiasmansilla1989/spree_auth_devise.git
-  revision: 1d69f1e11f42715cff633dc36fabea1431b98bab
-  branch: 2-4-stable
+PATH
+  remote: /Users/toptierlabs/Desktop/spree_auth_devise
   specs:
     spree_auth_devise (2.2.0)
       devise (~> 3.2.3)
@@ -226,6 +221,7 @@ GEM
       mime-types
     paranoia (2.0.5)
       activerecord (~> 4.0)
+    pg (0.18.1)
     polyamorous (1.2.0)
       activerecord (>= 3.0)
     polyglot (0.3.5)
@@ -331,6 +327,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)
   jquery-rails
+  pg (~> 0.18.1)
   rails (= 4.1.9)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
