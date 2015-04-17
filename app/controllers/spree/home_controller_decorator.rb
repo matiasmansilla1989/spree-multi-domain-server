@@ -7,8 +7,6 @@ Spree::HomeController.class_eval do
   def index
     @searcher = build_searcher(params.merge(include_images: true))
     @products = @searcher.retrieve_products.filter_store(@current_store.id)
-    puts @products
-    puts @products.present?
     @taxonomies = Spree::Taxonomy.includes(root: :children).filter_store(@current_store.id)
   end
 

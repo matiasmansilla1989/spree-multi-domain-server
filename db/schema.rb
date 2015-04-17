@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150414142946) do
+ActiveRecord::Schema.define(version: 20150417173134) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -625,7 +625,10 @@ ActiveRecord::Schema.define(version: 20150414142946) do
     t.boolean  "mutable",    default: true
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "store_id"
   end
+
+  add_index "spree_return_authorization_reasons", ["store_id"], name: "index_spree_return_authorization_reasons_on_store_id", using: :btree
 
   create_table "spree_return_authorizations", force: true do |t|
     t.string   "number"
@@ -636,9 +639,11 @@ ActiveRecord::Schema.define(version: 20150414142946) do
     t.datetime "updated_at"
     t.integer  "stock_location_id"
     t.integer  "return_authorization_reason_id"
+    t.integer  "store_id"
   end
 
   add_index "spree_return_authorizations", ["return_authorization_reason_id"], name: "index_return_authorizations_on_return_authorization_reason_id", using: :btree
+  add_index "spree_return_authorizations", ["store_id"], name: "index_spree_return_authorizations_on_store_id", using: :btree
 
   create_table "spree_return_items", force: true do |t|
     t.integer  "return_authorization_id"
@@ -879,13 +884,11 @@ ActiveRecord::Schema.define(version: 20150414142946) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "logo_file_name"
-    t.integer  "user_id"
   end
 
   add_index "spree_stores", ["code"], name: "index_spree_stores_on_code", using: :btree
   add_index "spree_stores", ["default"], name: "index_spree_stores_on_default", using: :btree
   add_index "spree_stores", ["url"], name: "index_spree_stores_on_url", using: :btree
-  add_index "spree_stores", ["user_id"], name: "index_spree_stores_on_user_id", using: :btree
 
   create_table "spree_tax_categories", force: true do |t|
     t.string   "name"
@@ -1032,15 +1035,15 @@ ActiveRecord::Schema.define(version: 20150414142946) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.integer  "store_id"
     t.integer  "store_customer_id"
+    t.integer  "store_admin_id"
   end
 
   add_index "spree_users", ["deleted_at"], name: "index_spree_users_on_deleted_at", using: :btree
   add_index "spree_users", ["email"], name: "email_idx_unique", unique: true, using: :btree
   add_index "spree_users", ["spree_api_key"], name: "index_spree_users_on_spree_api_key", using: :btree
+  add_index "spree_users", ["store_admin_id"], name: "index_spree_users_on_store_admin_id", using: :btree
   add_index "spree_users", ["store_customer_id"], name: "index_spree_users_on_store_customer_id", using: :btree
-  add_index "spree_users", ["store_id"], name: "index_spree_users_on_store_id", using: :btree
 
   create_table "spree_variants", force: true do |t|
     t.string   "sku",                                        default: "",    null: false
