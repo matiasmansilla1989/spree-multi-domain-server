@@ -12,10 +12,9 @@ class SocialSquareController < ApplicationController
       password: params[:spree_user][:password]
     user.spree_roles << Spree::Role.find_by_name(:admin)
     local_name = params[:spree_user][:email].split('@').first
-    store_url  = local_name + '.webappbetaone.socialsquare.ae' 
-    # store_url  = local_name + '.socialsquare:3001' 
+    store_url  = local_name + ENV['SERVER'] 
     user.admin_store = Spree::Store.create name: local_name + ' store', url: store_url,
-      mail_from_address: params[:spree_user][:email], code: Random.rand(100000)
+      mail_from_address: params[:spree_user][:email], code: Random.rand(100000), subdomain: local_name
     user.save
     # create default shipping category that is created always but now for each store
     Spree::ShippingCategory.create name: "Default", store_id: user.admin_store.id
